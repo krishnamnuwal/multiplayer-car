@@ -25,7 +25,16 @@ class Player {
       distance:this.distance
     });
   }
-
+  updateAll(){
+    for(var i=1;i<=4;i++){
+      var playerIndex="players/player"+i;
+      console.log(playerIndex)
+      database.ref(playerIndex).set({
+        name:"player",
+        distance:0
+      })
+    }
+  }
   static getPlayerInfo(){
     var playerInfoRef = database.ref('players');
     playerInfoRef.on("value",(data)=>{
